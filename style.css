@@ -1,0 +1,79 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+}
+body {
+  background-color: rgb(216, 216, 216);
+  height: 1000px;
+  width: 375px;
+  margin: 0 auto;
+}
+main {
+  display: flex;
+  flex-flow: column;
+  padding: 1rem;
+  border-radius: 3rem;
+  border-bottom-right-radius: 7rem;
+  background-color: rgb(255, 255, 255);
+}
+
+/*-------------------------------------*/
+form {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 0.2fr;
+  justify-items: center;
+  gap: 0.8rem;
+  border-bottom: 1px solid gray;
+}
+form label {
+  font-weight: 700;
+  color: gray;
+  font-size: 0.9rem;
+}
+form input {
+  font-size: 1.3rem;
+  width: 95px;
+  border-radius: 0.5rem;
+  border: 1px solid gray;
+  padding: 0.5rem 0.2rem;
+}
+
+button img {
+  border-radius: 50%;
+}
+button {
+  background-color: blueviolet;
+
+  border-color: rgb(29, 28, 28, 0%);
+  border-radius: 50%;
+  padding: 10px;
+}
+.button {
+  grid-column: 2/3;
+  position: relative;
+  top: 2rem;
+}
+
+/*----------------------------------------*/
+main > div:last-child {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-flow: column;
+  padding: 4rem;
+}
+
+main > div:last-child div {
+  font-size: 4rem;
+  font-weight: 800;
+  display: flex;
+  white-space: nowrap;
+  gap: 0.6rem;
+}
+
+span {
+  color: blueviolet;
+  letter-spacing: 0.5rem;
+}
