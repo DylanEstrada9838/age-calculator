@@ -5,11 +5,12 @@
 }
 body {
   background-color: rgb(216, 216, 216);
-  height: 1000px;
+  height: 1300px;
   width: 375px;
   margin: 0 auto;
 }
 main {
+  margin-top: 100px;
   display: flex;
   flex-flow: column;
   padding: 1rem;
@@ -77,6 +78,7 @@ main > div:last-child div {
   display: flex;
   white-space: nowrap;
   gap: 0.6rem;
+  line-height: 1;
 }
 
 span {
