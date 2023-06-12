@@ -1,32 +1,44 @@
 document.addEventListener("DOMContentLoaded", function (e) {
-  // Year validation. Set an attribute to year input, max= current year
-  let times = new Date();
-  let currYear = times.getFullYear();
+  // Current year validation. Set an attribute to year input, max= current year
+  var times = new Date();
+  var currYear = times.getFullYear();
+  var currMonth = times.getMonth() + 1;
+  var currDay = times.getDate();
   document.getElementById("year").setAttribute("max", `${currYear}`);
+
+  document.querySelector("form").addEventListener("input", function (e) {
+    let dayinput = document.getElementById("day").value;
+    let monthinput = document.getElementById("month").value;
+    let yearinput = document.getElementById("year").value;
+
+    if (yearinput == currYear) {
+      document.getElementById("month").setAttribute("max", `${currMonth}`);
+      if (monthinput == currMonth) {
+        console.log("correct");
+        document.getElementById("day").setAttribute("max", `${currDay}`);
+      }
+    } else {
+      document.getElementById("month").setAttribute("max", "12");
+      document
+        .getElementById("day")
+        .setAttribute("max", `${new Date(yearinput, monthinput, 0).getDate()}`);
+    }
+  });
 
   document.querySelector("form").addEventListener("submit", function (event) {
     event.preventDefault(); // Prevent form submission
 
-    //Get 3 inputs value, day, month, and year
+    //Get 3 user inputs value, day, month, and year
     var day = document.getElementById("day").value;
     var month = document.getElementById("month").value;
     var year = document.getElementById("year").value;
-
+    //Creates date with user´s input
     var bornDate = new Date(year, month - 1, day);
 
     console.log("Year:", year);
     console.log("Month:", month);
     console.log("Day:", day);
     console.log("Born Date: ", bornDate);
-
-    // Days in month validation
-    var validation = new Date(year, month, 0).getDate();
-    console.log("Days in the birthday month: ", validation);
-
-    if (day > validation) {
-      alert("Day is invalid, non existing day in calendar");
-      return;
-    }
 
     // Function to get days in birthday year
     function getDaysInYear(y) {
